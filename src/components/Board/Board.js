@@ -153,14 +153,22 @@ export class Board extends React.Component {
     }
 
     runOnNeighbors(cellWidth, cellHeight, newBoardCells, isFillMinesFlow) {
-        for (var i = cellWidth - 1; i <= cellWidth + 1; i++) {
-            for (var j = cellHeight - 1; j <= cellHeight + 1; j++) {
-                var neighbor = newBoardCells[i] && newBoardCells[i][j];    
+        let neighborsToCheck = [];
+        neighborsToCheck.push(newBoardCells[cellWidth][cellHeight]);
 
-                if (isFillMinesFlow && neighbor) { neighbor.value++; } 
-                else if (neighbor && !neighbor.reveald && !neighbor.mine && !neighbor.flag){
+        while (neighborsToCheck.length != 0) {
+            let currentCell = neighborsToCheck.pop();
+            cellWidth = currentCell.location.width;
+            cellHeight = currentCell.location.height;
+
+            for (var i = cellWidth - 1; i <= cellWidth + 1; i++) {
+                for (var j = cellHeight - 1; j <= cellHeight + 1; j++) {
+                    var neighbor = newBoardCells[i] && newBoardCells[i][j];
+                    if (isFillMinesFlow && neighbor) { neighbor.value++; } 
+                    else if (neighbor && !neighbor.reveald && !neighbor.mine && !neighbor.flag){
                         neighbor.reveald = true;
-                        if (neighbor.value === 0) { this.runOnNeighbors(i, j, newBoardCells); } 
+                        if (neighbor.value === 0) { neighborsToCheck.push(neighbor); } 
+                    }
                 }
             }
         }
