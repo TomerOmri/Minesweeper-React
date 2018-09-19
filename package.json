@@ -2,7 +2,7 @@
   "name": "minesweeper",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://TomerOmri.github.io/tomz",
+  "homepage": "https://TomerOmri.github.io/Minesweeper-React",
   "dependencies": {
     "bootstrap": "^4.1.3",
     "gh-pages": "^1.2.0",
