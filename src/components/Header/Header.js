@@ -30,8 +30,11 @@ render() {
     return(
         <div>
         <Jumbotron>
-        <h1 className="display-3">Hello, Ran!</h1>
-        <div className="lead">I had a great time working on this, thanks for the opportunity</div>
+        <h1 className="display-3">Welcome to Minesweeper game !</h1>
+        <div className="instructions">You are presented with a board of squares. Some squares contain mines (bombs), others don't. <br />
+        If you click on a square containing a bomb, you lose. <br /> If you manage to click all the squares (without clicking on any bombs) you win. <br /> Mark with flags the bombs (shift+click)
+
+        </div>
         <div className="lead">Cheers, Tomer</div>
         <hr />
         <div> 
